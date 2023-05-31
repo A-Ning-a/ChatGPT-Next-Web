@@ -170,7 +170,7 @@ export class ChatGPTApi implements LLMApi {
         .padStart(2, "0")}`;
     const ONE_DAY = 1 * 24 * 60 * 60 * 1000;
     const now = new Date();
-    const startOfMonth = new Date(now.getFullYear(), 2, 1);
+    const startOfMonth = new Date(Date.now() - 99 * ONE_DAY);
     const startDate = formatDate(startOfMonth);
     const endDate = formatDate(new Date(Date.now() + ONE_DAY));
 
