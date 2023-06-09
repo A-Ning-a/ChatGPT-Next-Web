@@ -707,7 +707,7 @@ export function Chat() {
               }}
             />
           </div>
-          {!isMobileScreen && (
+          {false && !isMobileScreen && (
             <div className="window-action-button">
               <IconButton
                 icon={config.tightBorder ? <MinIcon /> : <MaxIcon />}
