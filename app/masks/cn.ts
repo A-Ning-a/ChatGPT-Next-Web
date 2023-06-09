@@ -385,7 +385,7 @@ export const CN_MASKS: BuiltinMask[] = [
     builtin: true,
   },
   {
-    avatar: "1f4d1",
+    avatar: "gpt-bot",
     name: "视频直播脚本生成",
     context: [
       {
