@@ -415,20 +415,22 @@ export function Settings() {
             </Select>
           </ListItem>
 
-          <ListItem title={Locale.Settings.Lang.Name}>
-            <Select
-              value={getLang()}
-              onChange={(e) => {
-                changeLang(e.target.value as any);
-              }}
-            >
-              {AllLangs.map((lang) => (
-                <option value={lang} key={lang}>
-                  {ALL_LANG_OPTIONS[lang]}
-                </option>
-              ))}
-            </Select>
-          </ListItem>
+          {false ? (
+            <ListItem title={Locale.Settings.Lang.Name}>
+              <Select
+                value={getLang()}
+                onChange={(e) => {
+                  changeLang(e.target.value as any);
+                }}
+              >
+                {AllLangs.map((lang) => (
+                  <option value={lang} key={lang}>
+                    {ALL_LANG_OPTIONS[lang]}
+                  </option>
+                ))}
+              </Select>
+            </ListItem>
+          ) : null}
 
           <ListItem
             title={Locale.Settings.FontSize.Title}
@@ -465,22 +467,24 @@ export function Settings() {
             ></input>
           </ListItem>
 
-          <ListItem
-            title={Locale.Settings.Mask.Title}
-            subTitle={Locale.Settings.Mask.SubTitle}
-          >
-            <input
-              type="checkbox"
-              checked={!config.dontShowMaskSplashScreen}
-              onChange={(e) =>
-                updateConfig(
-                  (config) =>
-                    (config.dontShowMaskSplashScreen =
-                      !e.currentTarget.checked),
-                )
-              }
-            ></input>
-          </ListItem>
+          {false ? (
+            <ListItem
+              title={Locale.Settings.Mask.Title}
+              subTitle={Locale.Settings.Mask.SubTitle}
+            >
+              <input
+                type="checkbox"
+                checked={!config.dontShowMaskSplashScreen}
+                onChange={(e) =>
+                  updateConfig(
+                    (config) =>
+                      (config.dontShowMaskSplashScreen =
+                        !e.currentTarget.checked),
+                  )
+                }
+              ></input>
+            </ListItem>
+          ) : null}
         </List>
 
         <List>
@@ -543,37 +547,39 @@ export function Settings() {
           </ListItem>
         </List>
 
-        <List>
-          <ListItem
-            title={Locale.Settings.Prompt.Disable.Title}
-            subTitle={Locale.Settings.Prompt.Disable.SubTitle}
-          >
-            <input
-              type="checkbox"
-              checked={config.disablePromptHint}
-              onChange={(e) =>
-                updateConfig(
-                  (config) =>
-                    (config.disablePromptHint = e.currentTarget.checked),
-                )
-              }
-            ></input>
-          </ListItem>
+        {false && (
+          <List>
+            <ListItem
+              title={Locale.Settings.Prompt.Disable.Title}
+              subTitle={Locale.Settings.Prompt.Disable.SubTitle}
+            >
+              <input
+                type="checkbox"
+                checked={config.disablePromptHint}
+                onChange={(e) =>
+                  updateConfig(
+                    (config) =>
+                      (config.disablePromptHint = e.currentTarget.checked),
+                  )
+                }
+              ></input>
+            </ListItem>
 
-          <ListItem
-            title={Locale.Settings.Prompt.List}
-            subTitle={Locale.Settings.Prompt.ListCount(
-              builtinCount,
-              customCount,
-            )}
-          >
-            <IconButton
-              icon={<EditIcon />}
-              text={Locale.Settings.Prompt.Edit}
-              onClick={() => setShowPromptModal(true)}
-            />
-          </ListItem>
-        </List>
+            <ListItem
+              title={Locale.Settings.Prompt.List}
+              subTitle={Locale.Settings.Prompt.ListCount(
+                builtinCount,
+                customCount,
+              )}
+            >
+              <IconButton
+                icon={<EditIcon />}
+                text={Locale.Settings.Prompt.Edit}
+                onClick={() => setShowPromptModal(true)}
+              />
+            </ListItem>
+          </List>
+        )}
 
         <List>
           <ModelConfigList

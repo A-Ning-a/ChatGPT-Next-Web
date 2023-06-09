@@ -6,7 +6,7 @@ import { trimTopic } from "../utils";
 import Locale from "../locales";
 import { showToast } from "../components/ui-lib";
 import { ModelType } from "./config";
-import { createEmptyMask, Mask } from "./mask";
+import { createDetaultMask, Mask } from "./mask";
 import { StoreKey } from "../constant";
 import { api, RequestMessage } from "../client/api";
 import { ChatControllerPool } from "../client/controller";
@@ -70,7 +70,7 @@ function createEmptySession(): ChatSession {
     lastUpdate: Date.now(),
     lastSummarizeIndex: 0,
 
-    mask: createEmptyMask(),
+    mask: createDetaultMask("视频直播脚本生成"),
   };
 }
 

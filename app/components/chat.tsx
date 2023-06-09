@@ -91,18 +91,18 @@ export function SessionConfigModel(props: { onClose: () => void }) {
               }
             }}
           />,
-          <IconButton
-            key="copy"
-            icon={<CopyIcon />}
-            bordered
-            text={Locale.Chat.Config.SaveAs}
-            onClick={() => {
-              navigate(Path.Masks);
-              setTimeout(() => {
-                maskStore.create(session.mask);
-              }, 500);
-            }}
-          />,
+          // <IconButton
+          //   key="copy"
+          //   icon={<CopyIcon />}
+          //   bordered
+          //   text={Locale.Chat.Config.SaveAs}
+          //   onClick={() => {
+          //     navigate(Path.Masks);
+          //     setTimeout(() => {
+          //       maskStore.create(session.mask);
+          //     }, 500);
+          //   }}
+          // />,
         ]}
       >
         <MaskConfig
@@ -367,37 +367,43 @@ export function ChatActions(props: {
         ) : null}
       </div>
 
-      <div
-        className={`${chatStyle["chat-input-action"]} clickable`}
-        onClick={props.showPromptHints}
-      >
-        <PromptIcon />
-      </div>
+      {false && (
+        <div
+          className={`${chatStyle["chat-input-action"]} clickable`}
+          onClick={props.showPromptHints}
+        >
+          <PromptIcon />
+        </div>
+      )}
 
-      <div
-        className={`${chatStyle["chat-input-action"]} clickable`}
-        onClick={() => {
-          navigate(Path.Masks);
-        }}
-      >
-        <MaskIcon />
-      </div>
+      {false && (
+        <div
+          className={`${chatStyle["chat-input-action"]} clickable`}
+          onClick={() => {
+            navigate(Path.Masks);
+          }}
+        >
+          <MaskIcon />
+        </div>
+      )}
 
-      <div
-        className={`${chatStyle["chat-input-action"]} clickable`}
-        onClick={() => {
-          chatStore.updateCurrentSession((session) => {
-            if (session.clearContextIndex === session.messages.length) {
-              session.clearContextIndex = undefined;
-            } else {
-              session.clearContextIndex = session.messages.length;
-              session.memoryPrompt = ""; // will clear memory
-            }
-          });
-        }}
-      >
-        <BreakIcon />
-      </div>
+      {false && (
+        <div
+          className={`${chatStyle["chat-input-action"]} clickable`}
+          onClick={() => {
+            chatStore.updateCurrentSession((session) => {
+              if (session.clearContextIndex === session.messages.length) {
+                session.clearContextIndex = undefined;
+              } else {
+                session.clearContextIndex = session.messages.length;
+                session.memoryPrompt = ""; // will clear memory
+              }
+            });
+          }}
+        >
+          <BreakIcon />
+        </div>
+      )}
     </div>
   );
 }
@@ -707,7 +713,7 @@ export function Chat() {
               }}
             />
           </div>
-          {!isMobileScreen && (
+          {false && !isMobileScreen && (
             <div className="window-action-button">
               <IconButton
                 icon={config.tightBorder ? <MinIcon /> : <MaxIcon />}

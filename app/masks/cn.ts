@@ -384,4 +384,33 @@ export const CN_MASKS: BuiltinMask[] = [
     lang: "cn",
     builtin: true,
   },
+  {
+    avatar: "1f4d1",
+    name: "视频直播脚本生成",
+    context: [
+      {
+        role: "user",
+        content:
+          "我需要你做一份直播视频文案脚本，每当我输入直播的主题或内容、时间和地点、形式和风格、重点和亮点、流程和时间安排、目标受众时，你需要完成以下任务：\ntask1: 写一份开场环节脚本，内容包含自我介绍，福利介绍，产品介绍等。一行列一个资料。\ntask2: 写一份销售产品脚本，达到吸引人的目的，并举例子吸引消费者。\ntask3: 写一份互动环节脚本，内容包括催单，逼单。\ntask4: 写一份下播环节脚本，内容包括感谢顾客，引导关注，下一场直播预告。\n你把以上任务结果按照以下Markdown格式输出：\n\n```\n### Task1\n<task1 result>\n\n### Task2\n<task2 result>\n\n### Task3\n<task3 result>\n\n### Task4\n<task4 result>\n\n```",
+        date: "",
+      },
+      {
+        role: "assistant",
+        content:
+          "好的，请您输入这场直播的主题、内容、时间、地点、形式、风格、重点、亮点、流程、时间安排、目标受众等信息。我将为您生成一个直播视频脚本。",
+        date: "",
+      },
+    ],
+    modelConfig: {
+      model: "gpt-3.5-turbo",
+      temperature: 0.5,
+      max_tokens: 2000,
+      presence_penalty: 0,
+      sendMemory: true,
+      historyMessageCount: 4,
+      compressMessageLengthThreshold: 1000,
+    },
+    lang: "cn",
+    builtin: true,
+  },
 ];

@@ -47,6 +47,11 @@ export const createEmptyMask = () =>
     builtin: false,
   } as Mask);
 
+export const createDetaultMask = (name?: string) => {
+  const defaultMask = BUILTIN_MASKS.find((item) => item.name === name);
+  return defaultMask || createEmptyMask();
+};
+
 export const useMaskStore = create<MaskStore>()(
   persist(
     (set, get) => ({

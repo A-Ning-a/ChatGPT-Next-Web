@@ -17,17 +17,17 @@ export enum Theme {
 }
 
 export const DEFAULT_CONFIG = {
-  submitKey: SubmitKey.CtrlEnter as SubmitKey,
+  submitKey: SubmitKey.Enter as SubmitKey,
   avatar: "1f603",
   fontSize: 14,
-  theme: Theme.Auto as Theme,
-  tightBorder: false,
+  theme: Theme.Dark as Theme,
+  tightBorder: true,
   sendPreviewBubble: true,
   sidebarWidth: 300,
 
-  disablePromptHint: false,
+  disablePromptHint: true,
 
-  dontShowMaskSplashScreen: false, // dont show splash screen when create chat
+  dontShowMaskSplashScreen: true, // dont show splash screen when create chat
 
   modelConfig: {
     model: "gpt-3.5-turbo" as ModelType,
@@ -159,7 +159,7 @@ export const useAppConfig = create<ChatConfigStore>()(
         state.modelConfig.sendMemory = true;
         state.modelConfig.historyMessageCount = 4;
         state.modelConfig.compressMessageLengthThreshold = 1000;
-        state.dontShowMaskSplashScreen = false;
+        state.dontShowMaskSplashScreen = true;
 
         return state;
       },

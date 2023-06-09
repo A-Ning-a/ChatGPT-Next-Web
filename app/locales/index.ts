@@ -49,7 +49,7 @@ export const ALL_LANG_OPTIONS: Record<Lang, string> = {
 };
 
 const LANG_KEY = "lang";
-const DEFAULT_LANG = "en";
+const DEFAULT_LANG = "cn";
 
 function getItem(key: string) {
   try {
@@ -67,7 +67,7 @@ function setItem(key: string, value: string) {
 
 function getLanguage() {
   try {
-    return navigator.language.toLowerCase();
+    return DEFAULT_LANG || navigator.language.toLowerCase();
   } catch {
     console.log("[Lang] failed to detect user lang.");
     return DEFAULT_LANG;

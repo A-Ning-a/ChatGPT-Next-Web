@@ -119,6 +119,11 @@
   .mobile {
     display: block;
   }
+
+  .chat-item > .chat-item-delete {
+    opacity: 0.5;
+    transform: translateX(-10px);
+  }
 }
 
 .sidebar-header {

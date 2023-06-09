@@ -10,9 +10,9 @@ import {
 import { prettyObject } from "@/app/utils/format";
 
 export class ChatGPTApi implements LLMApi {
-  public ChatPath = "v1/chat/completions";
-  public UsagePath = "dashboard/billing/usage";
-  public SubsPath = "dashboard/billing/subscription";
+  public ChatPath = "api/openai/v1/chat/completions";
+  public UsagePath = "api/openai/dashboard/billing/usage";
+  public SubsPath = "api/openai/dashboard/billing/subscription";
 
   path(path: string): string {
     let openaiUrl = useAccessStore.getState().openaiUrl;
