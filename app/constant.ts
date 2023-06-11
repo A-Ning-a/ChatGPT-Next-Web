@@ -1,5 +1,5 @@
 export const OWNER = "A-Ning-a";
-export const BRANCH: string = "custom";
+export const BRANCH: string = "live-custom";
 export const REPO = "ChatGPT-Next-Web";
 export const REPO_URL = `https://github.com/${OWNER}/${REPO}${
   BRANCH === "main" || BRANCH === "master" ? "" : `/tree/${BRANCH}`
