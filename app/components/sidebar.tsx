@@ -187,6 +187,7 @@ export function SideBar(props: { className?: string }) {
                   chatStore.clearSessions();
                 }
               }}
+              shadow
             />
           </div>
         </div>
